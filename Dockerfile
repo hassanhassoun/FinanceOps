@@ -7,3 +7,6 @@ RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 RUN python3 get-pip.py
 ADD requirements.txt /
 RUN pip install -r /requirements.txt
+EXPOSE 8888
+WORKDIR /app
+ENTRYPOINT ["jupyter", "notebook", "--allow-root",  "--ip",  "0.0.0.0"]
